@@ -16,6 +16,7 @@
 		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="19"/>
 		<db-attribute name="name" type="VARCHAR" isMandatory="true" length="100"/>
 		<db-attribute name="vhost" type="VARCHAR" isMandatory="true" length="100"/>
+		<db-attribute name="created" type="VARCHAR" isMandatory="true" length="100"/>
 	</db-entity>
 	<db-entity name="tag">
 		<db-attribute name="article_id" type="BIGINT" isMandatory="true"/>
@@ -31,6 +32,7 @@
 	<obj-entity name="Domain" className="io.bootique.linkrest.demo.cayenne.Domain" dbEntityName="domain">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 		<obj-attribute name="vhost" type="java.lang.String" db-attribute-path="vhost"/>
+		<obj-attribute name="created" type="java.time.OffsetDateTime" db-attribute-path="created"/>
 	</obj-entity>
 	<obj-entity name="Tag" className="io.bootique.linkrest.demo.cayenne.Tag" dbEntityName="tag">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>

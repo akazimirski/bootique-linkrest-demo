@@ -1,10 +1,15 @@
 package io.bootique.linkrest.demo;
 
+import org.apache.cayenne.configuration.server.ServerModule;
+
 import com.google.inject.Binder;
 import com.google.inject.Module;
+
 import io.bootique.Bootique;
+import io.bootique.cayenne.CayenneModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.linkrest.demo.api.DomainResource;
+import io.bootique.linkrest.demo.cayenne.extensions.OffsetDateTimeType;
 
 /**
  * A runnable Bootique + LinkRest + Cayenne application.
@@ -20,6 +25,11 @@ public class App implements Module {
 
         // add all classes in DomainResource's class package as REST API resources
         JerseyModule.extend(binder).addPackage(DomainResource.class.getPackage());
-
+        
+        // extending Cayenne with new supported type
+        CayenneModule.extend(binder)
+        .addModule(cayenneBinder -> {
+        	ServerModule.contributeUserTypes(cayenneBinder).add(new OffsetDateTimeType()); 
+        });
     }
 }
