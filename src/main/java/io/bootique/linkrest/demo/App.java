@@ -4,12 +4,12 @@ import org.apache.cayenne.configuration.server.ServerModule;
 
 import com.google.inject.Binder;
 import com.google.inject.Module;
+import com.nhl.link.rest.runtime.cayenne.access.types.OffsetDateTimeType;
 
 import io.bootique.Bootique;
 import io.bootique.cayenne.CayenneModule;
 import io.bootique.jersey.JerseyModule;
 import io.bootique.linkrest.demo.api.DomainResource;
-import io.bootique.linkrest.demo.cayenne.extensions.OffsetDateTimeType;
 
 /**
  * A runnable Bootique + LinkRest + Cayenne application.
